@@ -1,0 +1,6 @@
+QuakeArena
+==========
+
+Dependencies
+----------
+* Spigot

@@ -1,6 +1,7 @@
-name: QuakeArena
-main: QuakeArena.QuakeArena
-version: 1.0
+name: ${project.artifactId}
+main: com.strongholdcraft.quake.QuakeArena
+version: ${project.version}
+
 commands:
    setup:
       description: Join the game.
