@@ -20,9 +20,8 @@ import java.util.List;
 
 public class WeaponListeners implements Listener {
 	HashMap<Player, Integer> reloading = new HashMap();
-	HashMap<Player, Long> cooldown = new HashMap();
-	private BukkitTask task;
-	private BukkitTask task2;
+	HashMap<Player, Long> coolDown = new HashMap();
+	private BukkitTask task, task2;
 	private double difference = .01;
 	private Plugin pl;
 
@@ -34,7 +33,7 @@ public class WeaponListeners implements Listener {
 	public void rightClick(PlayerInteractEvent e) {
 		final Player p = e.getPlayer();
 		if (p.getItemInHand().getType() == Material.REDSTONE_TORCH_ON) {
-			Bukkit.broadcastMessage("CD CONT " + cooldown.containsKey(p));
+			Bukkit.broadcastMessage("CD CONT " + coolDown.containsKey(p));
 			Bukkit.broadcastMessage("Difference: " + difference);
 			task = Bukkit.getScheduler().runTaskTimer(pl, new Runnable() {
 				int tick = 0;
@@ -49,7 +48,7 @@ public class WeaponListeners implements Listener {
 						v.multiply(.5);
 						fb.setVelocity(v);
 						task.cancel();
-						cooldown.put(p, System.currentTimeMillis());
+						coolDown.put(p, System.currentTimeMillis());
 						task.cancel();
 						tick = 0;
 					} else {
@@ -63,14 +62,14 @@ public class WeaponListeners implements Listener {
 
 	@EventHandler
 	public void onBlockFall(EntityChangeBlockEvent event) {
-		List<Entity> damagelist = new ArrayList<Entity>();
+		List<Entity> damageList = new ArrayList<Entity>();
 		if ((event.getEntityType() == EntityType.FALLING_BLOCK)) {
 			FallingBlock fb = (FallingBlock) event.getEntity();
 			event.getBlock().getWorld().createExplosion(fb.getLocation(), 0, false);
 			fb.getLocation().getWorld().playEffect(fb.getLocation(), Effect.EXPLOSION_HUGE, 10);
-			damagelist = fb.getNearbyEntities(5, 5, 5);
-			for (Iterator<Entity> iter = damagelist.iterator(); iter.hasNext(); ) {
-				Entity e = iter.next();
+			damageList = fb.getNearbyEntities(5, 5, 5);
+			for (Iterator<Entity> iterator = damageList.iterator(); iterator.hasNext(); ) {
+				Entity e = iterator.next();
 				if (e instanceof Player) {
 					Damageable d = (Damageable) e;
 					d.setHealth(d.getHealth() - ((double) 9));

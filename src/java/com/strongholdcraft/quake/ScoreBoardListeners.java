@@ -28,7 +28,6 @@ public class ScoreBoardListeners {
 	}
 
 	public static void attachScoreboard() {
+
 	}
-
-
 }

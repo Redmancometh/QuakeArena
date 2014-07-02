@@ -9,7 +9,7 @@ import org.bukkit.scheduler.BukkitScheduler;
 public class PlayerListeners implements Listener {
 	@EventHandler
 	public void startGame(final PlayerLoginEvent event) {
-		if (Bukkit.getServer().getOnlinePlayers().length == 0 && !(GameInProgress.getInProgress())) {
+		if (Bukkit.getServer().getOnlinePlayers().size() == 0 && !(GameInProgress.getInProgress())) {
 			GameInProgress.startGame();
 		}
 		GameInProgress.addPlayer(event.getPlayer());

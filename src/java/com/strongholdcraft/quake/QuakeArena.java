@@ -3,7 +3,6 @@ package com.strongholdcraft.quake;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-
 public class QuakeArena extends JavaPlugin {
 	public void onEnable() {
 		PluginManager pm = getServer().getPluginManager();

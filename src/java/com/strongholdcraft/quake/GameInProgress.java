@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class GameInProgress {
 	private static HashMap<Player, Integer> scores = new HashMap();
-	private int totalkills;
+	// private int totalkills;
 	private static Player[] players = new Player[20];
 	private static boolean inProgress;
 
