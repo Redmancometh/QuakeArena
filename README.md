@@ -3,4 +3,4 @@ QuakeArena
 
 Dependencies
 ----------
-*Spigot
+* Spigot
