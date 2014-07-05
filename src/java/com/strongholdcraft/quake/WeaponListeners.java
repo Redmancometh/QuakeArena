@@ -21,7 +21,7 @@ import java.util.List;
 public class WeaponListeners implements Listener {
 	HashMap<Player, Integer> reloading = new HashMap<Player, Integer>();
 	HashMap<Player, Long> coolDown = new HashMap<Player, Long>();
-	private BukkitTask task, task2;
+	private BukkitTask task;
 	private double difference = .01;
 	private Plugin pl;
 
