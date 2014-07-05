@@ -42,7 +42,8 @@ public class WeaponListeners implements Listener {
 				public void run() {
 					if (tick > 95) {
 						@SuppressWarnings("deprecation")
-						FallingBlock fb = p.getWorld().spawnFallingBlock(p.getEyeLocation(), Material.LAVA, (byte) 9);
+						FallingBlock fb = p.getWorld().spawnFallingBlock(
+								p.getEyeLocation(), Material.LAVA, (byte) 9);
 						Vector v = (p.getEyeLocation().getDirection());
 						v.add(new Vector(0, 2, 0));
 						v.angle(p.getEyeLocation().getDirection());
@@ -54,7 +55,8 @@ public class WeaponListeners implements Listener {
 						tick = 0;
 					} else {
 						tick += 5;
-						Bukkit.broadcastMessage("tick" + tick + " Difference: " + difference);
+						Bukkit.broadcastMessage("tick" + tick + " Difference: "
+								+ difference);
 					}
 				}
 			}, 0, 5);
@@ -66,10 +68,13 @@ public class WeaponListeners implements Listener {
 		List<Entity> damageList = new ArrayList<Entity>();
 		if ((event.getEntityType() == EntityType.FALLING_BLOCK)) {
 			FallingBlock fb = (FallingBlock) event.getEntity();
-			event.getBlock().getWorld().createExplosion(fb.getLocation(), 0, false);
-			fb.getLocation().getWorld().playEffect(fb.getLocation(), Effect.EXPLOSION_HUGE, 10);
+			event.getBlock().getWorld()
+					.createExplosion(fb.getLocation(), 0, false);
+			fb.getLocation().getWorld()
+					.playEffect(fb.getLocation(), Effect.EXPLOSION_HUGE, 10);
 			damageList = fb.getNearbyEntities(5, 5, 5);
-			for (Iterator<Entity> iterator = damageList.iterator(); iterator.hasNext(); ) {
+			for (Iterator<Entity> iterator = damageList.iterator(); iterator
+					.hasNext();) {
 				Entity e = iterator.next();
 				if (e instanceof Player) {
 					Damageable d = (Damageable) e;

@@ -17,7 +17,8 @@ public class ScoreBoardListeners {
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 		objective.setDisplayName(ChatColor.LIGHT_PURPLE + "Kills");
 		score[0] = objective.getScore(p);
-		Player[] online = (Player[]) Bukkit.getServer().getOnlinePlayers().toArray();
+		Player[] online = (Player[]) Bukkit.getServer().getOnlinePlayers()
+				.toArray();
 		for (int x = 0; x < online.length; x++) {
 			GameInProgress.getScore(online[x]);
 			score[x].setScore(GameInProgress.getScore(online[x]));
