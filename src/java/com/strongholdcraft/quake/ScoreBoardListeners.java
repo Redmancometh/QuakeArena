@@ -18,7 +18,7 @@ public class ScoreBoardListeners {
 		objective.setDisplayName(ChatColor.LIGHT_PURPLE + "Kills");
 		Team team = board.registerNewTeam("Red");
 		score[0] = objective.getScore(p);
-		Player[] online = Bukkit.getServer().getOnlinePlayers();
+		Player[] online = (Player[]) Bukkit.getServer().getOnlinePlayers().toArray();
 		for (int x = 0; x < online.length; x++) {
 			GameInProgress.getScore(online[x]);
 			score[x].setScore(GameInProgress.getScore(online[x]));
