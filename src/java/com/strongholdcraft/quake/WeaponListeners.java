@@ -41,6 +41,7 @@ public class WeaponListeners implements Listener {
 				@Override
 				public void run() {
 					if (tick > 95) {
+						@SuppressWarnings("deprecation")
 						FallingBlock fb = p.getWorld().spawnFallingBlock(p.getEyeLocation(), Material.LAVA, (byte) 9);
 						Vector v = (p.getEyeLocation().getDirection());
 						v.add(new Vector(0, 2, 0));
