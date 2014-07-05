@@ -9,6 +9,7 @@ public class ScoreBoardListeners {
 	private static Scoreboard board;
 	private static Score[] score;
 
+	@SuppressWarnings("deprecation")
 	public static void createScoreboard(Player p) {
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		board = manager.getNewScoreboard();
