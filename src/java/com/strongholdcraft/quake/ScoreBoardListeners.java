@@ -7,9 +7,7 @@ import org.bukkit.scoreboard.*;
 
 public class ScoreBoardListeners {
 	private static Scoreboard board;
-	private static Team team;
 	private static Score[] score;
-	private static Objective objective;
 
 	public static void createScoreboard(Player p) {
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
