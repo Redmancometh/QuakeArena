@@ -25,7 +25,7 @@ public class GameInProgress {
 	}
 
 	public static void addPlayer(Player p) {
-		players[Bukkit.getOnlinePlayers().length] = p;
+		players[Bukkit.getOnlinePlayers().size()] = p;
 		if (!scores.containsKey(p)) {
 			scores.put(p, 0);
 		}
