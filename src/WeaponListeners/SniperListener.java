@@ -7,6 +7,7 @@ import java.util.Random;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Egg;
 import org.bukkit.entity.Player;
@@ -47,6 +48,7 @@ public class SniperListener implements Listener
 	    {
 		if ((!cooldown.containsKey(p)) || (System.currentTimeMillis() - cooldown.get(p) > 2500))
 	    	{
+		    p.getWorld().playSound(p.getLocation(), Sound.EXPLODE, 90, 1.1f);
 		    cooldown.put(p, System.currentTimeMillis());
 		    Egg egg = p.throwEgg();
 		    egg.setVelocity(p.getLocation().getDirection());

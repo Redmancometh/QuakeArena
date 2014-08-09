@@ -59,7 +59,8 @@ public class Railgun implements Listener
 	                if (le.getLocation().distance(l)<=1.5) 
 	                {
 	                    Damageable d = (Damageable)le;
-	                    le.damage(d.getMaxHealth()*0.55);   
+	                    le.damage(d.getMaxHealth()*0.55);  
+	                    loc2.getBlock().setType(Material.LAVA);
 	                }
 	            }
 	        }

@@ -5,6 +5,7 @@ import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Egg;
 import org.bukkit.entity.Player;
@@ -40,6 +41,7 @@ public class ShotGunListener implements Listener
 		for(int x = 0; x<15; x++)
 		{
 		   final Egg egg = p.throwEgg();
+		   p.getWorld().playSound(p.getLocation(), Sound.EXPLODE, 40, 4);			
 		   Vector v = new Vector(r.nextDouble() - 0.89, r.nextDouble() - 0.65, r.nextDouble() - 0.89); //Add the velocity by a random number		  
 		   egg.setVelocity(egg.getVelocity().add(v).normalize());
 		   egg.setVelocity(egg.getVelocity().normalize().multiply(2));
